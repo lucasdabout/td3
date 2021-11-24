@@ -52,7 +52,18 @@ class IndexCrudController extends \Ubiquity\controllers\crud\MultiResourceCRUDCo
 
     protected function getIndexModels(): array
     {
-        return  (Group::class,User::class);
+        return  [Group::class,User::class];
+    }
+
+    protected function getIndexDefaultIcon(string $resource): string
+    {
+    switch ($resource){
+        case User::class;
+            return 'blue user';
+        case Group::class;
+            return 'red users';
+    }
+    return 'shower';
     }
 
 
